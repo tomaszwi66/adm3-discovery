@@ -249,14 +249,14 @@ Memory schema:
     {
       "timestamp": "2026-04-22T14:30:00",
       "iteration": 1,
-      "problem": "...",
-      "arbiter_decision": { ... }
+      "problem": "",
+      "arbiter_decision": {}
     }
   ],
-  "patterns": ["..."],
-  "rejected_biases": ["..."],
+  "patterns": [],
+  "rejected_biases": [],
   "high_yield_domains": [],
-  "successful_strategies": ["..."]
+  "successful_strategies": []
 }
 ```
 
