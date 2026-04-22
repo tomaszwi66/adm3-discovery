@@ -1,3 +1,7 @@
+<p align="left">
+  <img src="adm-3.jpeg" alt="ADM-3 - Autonomous Discovery Multi-Agent Framework" width="900">
+</p>
+
 # ADM-3 - Autonomous Discovery Multi-Agent Framework
 
 > A local autonomous scientific discovery CLI.  
