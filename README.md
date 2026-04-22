@@ -1,7 +1,7 @@
 # ADM-3 - Autonomous Discovery Multi-Agent Framework
 
-> A local, fully offline autonomous scientific discovery CLI.  
-> Generates hypotheses, critiques them, searches the web, runs experiments, and iterates - powered entirely by a local LLM via Ollama.
+> A local autonomous scientific discovery CLI.  
+> Generates hypotheses, critiques them, searches the web, runs experiments, and iterates - powered entirely by a local LLM via Ollama. No API keys required.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
 ![Ollama](https://img.shields.io/badge/LLM-Ollama-black?logo=ollama)
@@ -60,7 +60,7 @@ Each agent calls the LLM with a structured prompt, parses JSON output, and passe
 ### 2. Install
 
 ```bash
-git clone https://github.com/TomaszWietrzykowski/adm3-discovery.git
+git clone https://github.com/tomaszwi66/adm3-discovery.git
 cd adm3-discovery
 pip install -r requirements.txt
 ```
@@ -216,11 +216,11 @@ superconductivity in hydrogen-rich compounds under high pressure?
 Average Tc with Carbon Chains:    231.33 K
 Average Tc without Carbon Chains: 250.00 K
 Difference:                        -18.67 K
-RESULT: SUPPORTED
+RESULT: REJECTED
 ```
 
 **Arbiter decision** *(overrode H1 despite higher EV)*:
-> Experiment supported H1, but carbon chain instability under high pressure is well-documented. H3 (graphene-like hybrid structures) offers higher testability and aligns with recent experimental findings.
+> Experiment REJECTED H1 - carbon chain doping reduced Tc by 18.67 K. H3 (graphene-like hybrid structures) offers a more robust mechanism: enhanced electron delocalization without the lattice instability seen with carbon chains.
 
 **Best Bet:** Integration of hydrogen-rich compounds with graphene-like structures - enhanced electron delocalization and reduced scattering under high pressure.
 
