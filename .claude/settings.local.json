@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ':*)",
+      "Bash(python -c ' *)",
+      "Bash(git --version)",
+      "Bash(git config *)",
+      "Bash(gh repo *)",
+      "Bash(python -m py_compile config.py main.py agents/*.py tools/*.py memory/*.py)",
+      "Bash(grep \"\\\\.py$\")",
+      "Bash(python3)",
+      "Bash(python -c \"import ast; import pathlib; [ast.parse\\(p.read_text\\(encoding='utf-8'\\)\\) for p in pathlib.Path\\('.'\\).rglob\\('*.py'\\) if '__pycache__' not in str\\(p\\)]; print\\('All Python files parse OK'\\)\")"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 """
 ADM-3 Step 1 - Generator Agent.
-Produces 10-20 diverse hypotheses with calibrated P(correct) scores.
+Produces 10-15 diverse hypotheses with calibrated P(correct) scores.
 """
 import json
 import re

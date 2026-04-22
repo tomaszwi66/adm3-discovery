@@ -241,7 +241,14 @@ Re-running the same problem loads prior context - the LLM receives previous best
 Memory schema:
 ```json
 {
-  "runs": [...],
+  "runs": [
+    {
+      "timestamp": "2026-04-22T14:30:00",
+      "iteration": 1,
+      "problem": "...",
+      "arbiter_decision": { ... }
+    }
+  ],
   "patterns": ["..."],
   "rejected_biases": ["..."],
   "high_yield_domains": [],

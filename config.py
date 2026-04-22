@@ -20,13 +20,13 @@ EXEC_TIMEOUT = 30  # seconds
 SEARCH_RESULTS = 5  # results per DuckDuckGo query
 
 # ── Memory ────────────────────────────────────────────────────────────────────
-MEMORY_FILE = "memory.json"
+MEMORY_FILE = "memory.json"  # overridden at runtime by store.filename_for_problem()
 MAX_MEMORY_RUNS = 20  # oldest runs are rotated out beyond this
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="APEX Discovery Multi-Agent Framework (ADM-3)"
+        description="ADM-3 - Autonomous Discovery Multi-Agent Framework"
     )
     parser.add_argument(
         "--iterations", "-n",

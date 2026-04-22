@@ -1,6 +1,6 @@
 """
-APEX Discovery Multi-Agent Framework (ADM-3)
-─────────────────────────────────────────────
+ADM-3 - Autonomous Discovery Multi-Agent Framework
+──────────────────────────────────────────────────
 Autonomous scientific discovery CLI.
 Run with:  python main.py
            python main.py --iterations 5 --model llama3.1:8b
@@ -306,7 +306,7 @@ def main():
     model = args.model
     iterations = args.iterations
 
-    _section("APEX DISCOVERY MULTI-AGENT FRAMEWORK  (ADM-3)")
+    _section("ADM-3 - AUTONOMOUS DISCOVERY MULTI-AGENT FRAMEWORK")
     print(f"  Model     : {model}")
     print(f"  Iterations: {iterations}")
 
