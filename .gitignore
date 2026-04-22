@@ -29,3 +29,6 @@ Thumbs.db
 
 # Temp files from code executor
 tmp*.py
+
+# Claude Code local settings
+.claude/
