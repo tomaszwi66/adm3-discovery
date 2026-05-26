@@ -3,6 +3,7 @@ ADM-3 Configuration
 All tuneable parameters live here. Override per-run with CLI flags.
 """
 import argparse
+import os
 import sys
 
 # ── LLM ──────────────────────────────────────────────────────────────────────
@@ -17,7 +18,9 @@ ITERATIONS = 3
 EXEC_TIMEOUT = 30  # seconds
 
 # ── Search ────────────────────────────────────────────────────────────────────
-SEARCH_RESULTS = 5  # results per DuckDuckGo query
+SEARCH_RESULTS = 5  # results per search query
+SEARCH_PROVIDER = os.getenv("SEARCH_PROVIDER", "duckduckgo")  # 'duckduckgo' | 'tavily'
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
 
 # ── Memory ────────────────────────────────────────────────────────────────────
 MEMORY_FILE = "memory.json"  # overridden at runtime by store.filename_for_problem()
