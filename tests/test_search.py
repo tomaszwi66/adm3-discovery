@@ -1,6 +1,7 @@
 """Exercise provider routing and the MCP transport through research consumption."""
 import asyncio
 import contextlib
+import importlib.util
 import io
 import json
 import os
@@ -9,16 +10,15 @@ import threading
 import time
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from types import SimpleNamespace
 from unittest.mock import patch
 
 import config
 from agents import researcher
 from tools import search
 
-try:
+if importlib.util.find_spec("mcp") is not None:
     from tools import parallel_search
-except ImportError:
+else:
     parallel_search = None
 
 
