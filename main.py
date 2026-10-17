@@ -303,6 +303,7 @@ def run_iteration(
 
 def main():
     args = config.parse_args()
+    config.SEARCH_PROVIDER = args.search_provider
     model = args.model
     iterations = args.iterations
 

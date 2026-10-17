@@ -100,6 +100,34 @@ python main.py --iterations 5 --model qwen2.5:7b
 | `--problem` / `-p` | interactive prompt | Research problem (skip interactive input) |
 | `--iterations` / `-n` | `3` | Number of discovery cycles |
 | `--model` / `-m` | `qwen2.5:14b` | Ollama model to use |
+| `--search-provider` | `duckduckgo` | `duckduckgo`, `parallel`, or `none` to disable web search; default can be changed in `config.py` |
+
+### Optional Parallel search
+
+The Researcher Agent can use [Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp)
+for free web search without an account or API key. Anonymous search uses Fast mode.
+Install the optional MCP client and select the provider:
+
+```bash
+pip install -r requirements-parallel.txt
+python main.py --search-provider parallel --problem "How does intermittent fasting affect mitochondrial biogenesis?"
+```
+
+Parallel sends the research problem and hypothesis search query to
+`https://search.parallel.ai/mcp`. Search excerpts and source URLs are passed to the
+existing novelty-classification prompt. DuckDuckGo remains the default; set
+`SEARCH_PROVIDER` in `config.py` to save your choice or override it per run with
+`--search-provider`. Use `--search-provider none` to prevent web search requests.
+An error, unavailable dependency, timeout, or free-service usage limit produces a
+warning and no results, without switching providers. Adjust `SEARCH_TIMEOUT` in
+`config.py` to change the 30-second Parallel request budget. Ctrl+C interrupts the
+request and the run. This provider uses search excerpts and does not fetch pages.
+
+To run the provider and research-agent checks after installing the optional client:
+
+```bash
+python -m unittest discover -s tests -v
+```
 
 ---
 
@@ -274,6 +302,8 @@ ITERATIONS   = 3               # discovery cycles per run
 LLM_TIMEOUT  = 180             # seconds per LLM call
 EXEC_TIMEOUT = 30              # seconds for experiment execution
 SEARCH_RESULTS = 5             # DuckDuckGo results per query
+SEARCH_PROVIDER = "duckduckgo"  # duckduckgo, parallel, or none
+SEARCH_TIMEOUT = 30            # seconds per Parallel MCP search
 MAX_MEMORY_RUNS = 20           # oldest runs rotated out beyond this
 ```
 
