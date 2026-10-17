@@ -17,7 +17,9 @@ ITERATIONS = 3
 EXEC_TIMEOUT = 30  # seconds
 
 # ── Search ────────────────────────────────────────────────────────────────────
-SEARCH_RESULTS = 5  # results per DuckDuckGo query
+SEARCH_RESULTS = 5  # results per query
+SEARCH_PROVIDER = "duckduckgo"  # duckduckgo, parallel, or none (disable web search)
+SEARCH_TIMEOUT = 30  # total seconds per Parallel MCP search, including connection
 
 # ── Memory ────────────────────────────────────────────────────────────────────
 MEMORY_FILE = "memory.json"  # overridden at runtime by store.filename_for_problem()
@@ -39,6 +41,12 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default=MODEL,
         help=f"Ollama model to use (default: {MODEL})",
+    )
+    parser.add_argument(
+        "--search-provider",
+        choices=("duckduckgo", "parallel", "none"),
+        default=SEARCH_PROVIDER,
+        help="Web search provider; 'none' disables web search (default: %(default)s)",
     )
     parser.add_argument(
         "--problem", "-p",
